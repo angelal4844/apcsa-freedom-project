@@ -52,8 +52,6 @@ this.ctx = this.canvas.getContext("2d");
 #### Getting Started (Day 2)
 
 
-* Something I am going to try next is making a small project through using game objects and things I learned this week. 
-
 
 
 <!-- 
