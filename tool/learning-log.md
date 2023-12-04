@@ -6,7 +6,7 @@ Project: **My main project idea is making a food rpg game where the player can c
 
 ---
 
-10/23/23:
+**10/23/23**:
 * Link: https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_ 
 
 #### Getting Started (Day1)
@@ -42,16 +42,70 @@ However, then I realized that `ctx` was a place to store all the drawing method,
 ```JS
 this.ctx = this.canvas.getContext("2d");
 ```
-**Questions**
 
-* Something I am going to try next is 
-
-10/27/23:
+**10/27/23 - 10/30/23**:
 * Link: https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_ 
-
 #### Getting Started (Day 2)
+**IMPORTANT**: **ORDER MATTERS WHEN PLACING IMAGES** 
+* PUT IMAGES YOU WANT AS BACKGROUND **FIRST**, THEN THE OTHER SPRITES
+* Today I learned about how to place the images on the canvas 
+```Javascript 
+// Configure Animation and Initial State 
+this.animations = config.animations || {
+    idleDown: [
+        [0,0]
+    ]
+}
+this.currentAnimation = config.currentAnimation || "idleDown";
+this.currentAnimationFrame = 0;
 
+// Position of the sprite 
+const x = this.gameObject.x * 16 - 8;
+const y = this.gameObject.y * 16 - 8;
 
+// Helps show only one sprite in a sprite sheet 
+cx.drawImage(this.image,
+0, 0, 
+32, 32, 
+x, y,
+32, 32,
+)
+```
+In the code above, I was really confused with `this()` because I wasn't really sure which method `this()` is referring to. In addition, I tried rewatching the tutorial and found out that `this()` is referring to the previous method that you created inside of the method.
+
+**11/6/23 - 11/13/23**:
+* Link: https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_ 
+#### Getting Started (Day 3)
+* Today I learned about placing game objects. Game objects are different sprites in the game.
+```Javascript 
+ const cupcake = new GameObject({
+    x: 7, 
+    y: 10,
+})
+const menu = new GameObject({
+    x: 7, 
+    y: 9,
+})
+```
+* When creating a game object ,**YOU NEED TO CREATE A NEW GAME OBJECT FOR EVERY SPRITE** using `const spriteName = new GameObject({})`.
+* Something that I am going to try next is making the sprite move.
+
+**11/20/23 - 11/27/23**:
+* Link: https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_ 
+#### Getting Started (Day 4)
+* Today I learned about how to make the sprite move through creating different position for the sprite 
+```Javascript 
+draw(ctx) {
+const x = this.game0bject.x * 16 - 8;
+const y = this.game0bject.y * 16 - 18;
+this.isLoaded && ctx.drawImage(this.image,
+0,0,
+32,32,
+x, y, 
+32,32
+)}
+```
+In the code above, it grabs the sprite position using `this.gameObject.x` and loading it to the `ctx.drawImage`, so that when you run the code, it only show one sprite moving around the canvas. 
 
 
 <!-- 
