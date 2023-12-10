@@ -107,7 +107,38 @@ x, y,
 ```
 In the code above, it grabs the sprite position using `this.gameObject.x` and loading it to the `ctx.drawImage`, so that when you run the code, it only show one sprite moving around the canvas. 
 
+**12/4/2023**
+* Link: https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_ 
+#### Loops (Day 5)
+Today I learned about how to make a loop, where it helps load all objects and sprite in the game as well
+```JS
+startGameLoop() {
+    const step = () => {
+        console.log("Stepping!");
+        requestAnimationFrame() => {
+            step();
+        })
+      }
+      step();
+    }
+```
+`requestAnimationFrame() => {}` --> `requestAnimationFrame()` helps grab the objects and sprite and making it step. In the beginning, I tried putting the step in different places to see what will happen. I learned that if you put `step()` before the `requestAnimationFrame()`, it can cause a infinite loop, causing the computer to froze. 
+```JS
+startGameLoop() {
+    const step = () => {
+          step();
+        requestAnimationFrame() => {
+          
+        })
+      }
+      step();
+    }
+```
+In addition, I learned that if you put `step()` after or inside the `requestAnimationFrame()`, it will not cause a infinite loop. 
+**IMPORTANT:** To prevent a infinite loop from happening, we put code we want to run **INSIDE** or **AFTER** **requestAnimationFrame()**
 
+* These few weeks, I made a canvas for how big I wanted the game to be. In addition, after I finish making the canvas for my game, I started putting objects, sprites, and background on my canvas. Lastly, I started making loops to make the object appear forever as well as making the movements move constantly when you click on the mouse.
+  
 <!-- 
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
