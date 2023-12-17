@@ -95,13 +95,13 @@ x, y,
 ```
 * Some aha moments I found was when I was learning about loops. I learned that everytime you want to create a movement, you need to put it inside `requestAnimationFrame() => {}` or create a new `requestAnimationFrame() => {}`. If you put it outside of `requestAnimationFrame() => {}`, it will cause a infinite loop.
 * **IMPORTANT:** To prevent a infinite loop from happening, we put code we want to run **INSIDE** or **AFTER** **requestAnimationFrame()**
-### SKills
+### Skills
 Some skills I learned is time management, how to learn, and how to google. These few weeks, I learned to organize my time by watching tutorials every Monday and taking notes on what I made and challenges/aha moments I noticed during my journey in tinkering my tool. In addition, I learned how to google by watching different tutorials and rewatching the tutorials when I don't understand how the code works. In conclusion, I also learned how to learn by watching different videos and tutorials on Youtube on how to create different games using Javascript.
 
 ### EDP
 Last blog, I am on stage 1, define the problem and stage 2, research the problem. This blog I am currently on stage 2, research the problem. These few weeks, I continued on tinkering with my tool. I learned about how to use loops to create different movements to the sprite as well as changing the position of the sprite and how to load the sprite. Next blog, I would continue tinkering with my tool and start planning out what my project will look like.
 ### Winter Break
-During winter break, I would finish learning all the topics in Javascript and make a mini project using everything I learned while tinkering my tool to make sure that I understand how to use the code. 
+During winter break, I would finish learning all the topics in Javascript and make a mini project using everything I learned while tinkering my tool to make sure that I understand how to use the code.
 
 [Previous](entry01.md) | [Next](entry03.md)
 
