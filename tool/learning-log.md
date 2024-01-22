@@ -135,7 +135,7 @@ startGameLoop() {
     }
 ```
 In addition, I learned that if you put `step()` after or inside the `requestAnimationFrame()`, it will not cause a infinite loop.
-**IMPORTANT:** To prevent a infinite loop from happening, we put code we want to run **INSIDE** or **AFTER** **requestAnimationFrame()**
+* **IMPORTANT:** To prevent a infinite loop from happening, we put code we want to run **INSIDE** or **AFTER** **requestAnimationFrame()**
 
 * These few weeks, I made a canvas for how big I wanted the game to be. In addition, after I finish making the canvas for my game, I started putting objects, sprites, and background on my canvas. Lastly, I started making loops to make the object appear forever as well as making the movements move constantly when you click on the mouse.
 ## **Winter Break (12/25/2023 - 1/1/2023)**
@@ -146,14 +146,16 @@ In addition, I learned that if you put `step()` after or inside the `requestAnim
 window.maps = {
 // First Map
 Bedroom: { // creating what the map will look like
-    lowerSrc: "img/ (image link)",
-    upperSrc: "img/ (image link)",
+    lowerSrc: "img/ (image link)", // what the base of the map will look like
+    upperSrc: "img/ (image link)", // what the top of the map will look like
     gameObjects: { // adding game objects in the map
         npc1: new npc1({
+            // position of npc1
             x: 10,
             y: 11,
         }),
         npc2: new npc2({
+            // position of npc2
             x: 5,
             y: 6,
         })
@@ -161,18 +163,21 @@ Bedroom: { // creating what the map will look like
 }
 // Second Map
 Kitchen: {
-    lowerSrc: "img/ (image link)",
-    upperSrc: "img/ (image link)",
+    lowerSrc: "img/ (image link)", // what the base of the map will look like
+    upperSrc: "img/ (image link)", // what the top of the map will look like
     gameObjects: {
         npc3: new npc3({
+            // position of npc3
             x: 14,
             y: 15,
         }),
         npc4: new npc4({
+            // position of npc4
             x: 20,
             y: 21,
         })
         npc5: new npc5({
+            // position of npc5
             x: 25,
             y: 26,
         })
@@ -180,7 +185,7 @@ Kitchen: {
 }
 }
 ```
-* When creating a map, you first need to create a variable. Inside the variable, you can add the background of what your map will look like and game objects. In the code above, I created two variable, kitchen and bedroom. Inside each variable, I added different game objects like npc1 and npc4. In addition, I also added what the background will look like for each map using `lowerSrc: "img/ (image link)", upperSrc: "img/ (image link)",`. I added a `lowerSrc` and `upperSrc` because the `lowerSrc` will help create the base of the map and `upperSrc` will help create the anything on top of the base.
+* When creating a map, you first need to create a variable. Inside the variable, you can add the background of what your map will look like and game objects. In the code above, I created two variable, kitchen and bedroom. Inside each variable, I added different game objects like npc1 and npc4. In addition, I also added what the background will look like for each map using `lowerSrc: "img/ (image link)", upperSrc: "img/ (image link)",`. I added a `lowerSrc` and `upperSrc` because the `lowerSrc` will help create the base of the map and `upperSrc` will help create anything on top of the base.
 
 * Something I am going to try next is grid based movement, where the user can move the sprite using the arrow keys.
 #### Grid Based Movement
@@ -190,14 +195,14 @@ class DirectionInput {
     this.heldDirections = [];
 
     this.map = {
-        "ArrowUp": "up",
-        "KeyW": "up",
-        "ArrowDown": "down",
-        "KeyS": "down",
-        "ArrowLeft": "left",
-        "KeyA": "left",
-        "ArrowRight": "right",
-        "KeyD": "right",
+        "ArrowUp": "up", // when the user presses the up arrow key, the sprite will move up
+        "KeyW": "up", // when the user presses the letter W on the keyboard, the sprite will move up
+        "ArrowDown": "down", // when the user presses the down arrow key, the sprite will move down
+        "KeyS": "down", // when the user presses the letter S on the keyboard, the sprite will move down
+        "ArrowLeft": "left", // when the user presses the left arrow key, the sprite will move left
+        "KeyA": "left", // when the user presses the letter A on the keyboard, the sprite will move left
+        "ArrowRight": "right", // when the user presses the right arrow key, the sprite will move right
+        "KeyD": "right", // when the user presses the letter D on the keyboard, the sprite will move right
     }
 }
 
@@ -276,6 +281,61 @@ asGridCoord(x, y){
 }
 ```
 * In the code above, we create a new variable inside the map called walls. Inside the variable, we set each position of the game object to true. To find the position of the game object, we can find the position of each game object through counting the positions of the boxes in the spritesheet. When the position of the object is true, the sprite can not walk through the game object.
+## ** 1/8/2024 - 1/22/2024**
+#### Typewriters & Scene Transitions
+* Today I learned about creating a text message inside a cut scene.
+##### How to create a text message inside a cut scene
+```JS
+this.map.startCutscene([
+    {type: "textMessage", text: "This is the very first message!"}
+])
+```
+In the code above, when you want to create a text message inside the scene, you first need to start the cut scene by using `this.map.startCutscene([])`. Inside the cut scene, you can add text messages using `{type: "textMessage", text: "This is the very first message!"}`.
+
+#### How to make the text appear one by one
+* Today, I learned about how to make the text appear one by one as well as creating the speed of when each word appear.
+```JS
+// css
+.TextMessage span{
+    opacity: 0;
+}
+.TextMessage span.revealed{
+    opacity: 1;
+}
+```
+```JS
+// how to change the text and speed
+class RevealingText {
+    constructor(config) {
+        this.element = config.element;
+        this.text = config.text;
+        this.speed = config.element || 70; // speed of the text message
+
+        this.timeout = null;
+        this.isDone = false;
+    }
+
+    init(){
+        let character = []; // empty array
+        this.text.split("").forEach(character => { // spliting each string in the array
+        // {Hi} --> {"H", "i"}
+
+            let span = document.createElement("span"); // creating each span for the array
+            span.textContent = character;  // add the span inside the empty array
+            this.element.appendChild(span); // adding the span into each string
+
+            characters.push({
+                span, 
+                delayAfter: character === " " ? 0: this.speed // the speed and time before the second text message appears
+            })
+        })
+    }
+}
+```
+* One challenge I had was when I was trying out how to use `delayAfter: character === " " ? 0: this.speed`. I was confused what `?` mean in the code. After trying out the code, I learned that `?` mean passing a number into the empty string.
+
+* Something I am going to try next is creating a RPG Battle System (builidng a attack menu, creating a status effect, and many more).
+
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
