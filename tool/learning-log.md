@@ -283,6 +283,7 @@ asGridCoord(x, y){
 * In the code above, we create a new variable inside the map called walls. Inside the variable, we set each position of the game object to true. To find the position of the game object, we can find the position of each game object through counting the positions of the boxes in the spritesheet. When the position of the object is true, the sprite can not walk through the game object.
 ## **1/8/2024 - 1/22/2024**
 #### Typewriters & Scene Transitions
+* Link: Link: https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_
 * Today I learned about creating a text message inside a cut scene.
 ##### How to create a text message inside a cut scene
 ```JS
@@ -293,6 +294,7 @@ this.map.startCutscene([
 In the code above, when you want to create a text message inside the scene, you first need to start the cut scene by using `this.map.startCutscene([])`. Inside the cut scene, you can add text messages using `{type: "textMessage", text: "This is the very first message!"}`.
 
 #### How to make the text appear one by one
+* Link:https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_
 * Today, I learned about how to make the text appear one by one as well as creating the speed of when each word appear.
 ```JS
 // css
