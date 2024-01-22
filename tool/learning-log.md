@@ -281,7 +281,7 @@ asGridCoord(x, y){
 }
 ```
 * In the code above, we create a new variable inside the map called walls. Inside the variable, we set each position of the game object to true. To find the position of the game object, we can find the position of each game object through counting the positions of the boxes in the spritesheet. When the position of the object is true, the sprite can not walk through the game object.
-## ** 1/8/2024 - 1/22/2024**
+## **1/8/2024 - 1/22/2024**
 #### Typewriters & Scene Transitions
 * Today I learned about creating a text message inside a cut scene.
 ##### How to create a text message inside a cut scene
@@ -325,7 +325,7 @@ class RevealingText {
             this.element.appendChild(span); // adding the span into each string
 
             characters.push({
-                span, 
+                span,
                 delayAfter: character === " " ? 0: this.speed // the speed and time before the second text message appears
             })
         })
