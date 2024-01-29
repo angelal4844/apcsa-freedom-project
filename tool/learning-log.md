@@ -281,7 +281,7 @@ asGridCoord(x, y){
 }
 ```
 * In the code above, we create a new variable inside the map called walls. Inside the variable, we set each position of the game object to true. To find the position of the game object, we can find the position of each game object through counting the positions of the boxes in the spritesheet. When the position of the object is true, the sprite can not walk through the game object.
-## **1/8/2024 - 1/22/2024**
+## **1/8/2024 - 1/29/2024**
 #### Typewriters & Scene Transitions
 * Link: Link: https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_
 * Today I learned about creating a text message inside a cut scene.
@@ -305,6 +305,7 @@ In the code above, when you want to create a text message inside the scene, you 
     opacity: 1;
 }
 ```
+* In the code above, when the text message is not revealed, it will not appear on the screen. In addition, when the text message is revealed, it will appear on the screen.
 ```JS
 // how to change the text and speed
 class RevealingText {
@@ -323,10 +324,10 @@ class RevealingText {
         // {Hi} --> {"H", "i"}
 
             let span = document.createElement("span"); // creating each span for the array
-            span.textContent = character;  // add the span inside the empty array
+            span.textContent = character;  // adding words into the empty array
             this.element.appendChild(span); // adding the span into each string
 
-            characters.push({
+            character.push({
                 span,
                 delayAfter: character === " " ? 0: this.speed // the speed and time before the second text message appears
             })
@@ -334,9 +335,11 @@ class RevealingText {
     }
 }
 ```
+* In the code above, inside the for each loop, when you run the code, each letter will appear one by one. In addition, if we want one word to appear one by one, we can create a new for loop, where we do not use `this.text.split("")`.
+
 * One challenge I had was when I was trying out how to use `delayAfter: character === " " ? 0: this.speed`. I was confused what `?` mean in the code. After trying out the code, I learned that `?` mean passing a number into the empty string.
 
-* Something I am going to try next is creating a RPG Battle System (builidng a attack menu, creating a status effect, and many more).
+* Something I am going to try next is making a mini project using typewriters and scene transitions.
 
 <!--
 * Links you used today (websites, videos, etc)
