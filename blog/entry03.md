@@ -79,7 +79,7 @@ init() {
 ```
 * In the code above, I created different arrow keys to move in different direction when the arrow keys is clicked using `"ArrowUp": "up"`. In addition, after I created the different arrow keys, I run the code by using `document.addEventListener()`.`document.addventListener()` helps the computer run the code inside the function when a certain key is pressed. Inside `document.addeventListener()`, I run the code using `cost dir = this.map[e.code];`.`this.map[e.code];` helps find the function called `this.map` and grab the code is the same as the arrow keys that you pressed.
 #### Character Animations
-*
+* `Character Animations` --> Helps change the animation frame when the sprite is going in different direction.
 ```JS
 this.animations = config.animations || {
     "idle-down": [ [0,0]], // current position
