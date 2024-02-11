@@ -247,7 +247,7 @@ this.isLoaded && ctx.drawImage(this.image,
  32, 32,
 )
 ```
-* In the code above, you create the position of the sprite using `"walk-down": [ [1,0],[0,0],[3,0],[0,0] ],` `[0, 0]` helps tell us the animation frame we are using when the sprite is walking down. In addition, after we finsih creating the animation frame, we need to create a time for how long we want the animation loop to be before it goes to the next frame. After we finish creating the frame time, we draw the image by using `frameX * 32, frameY * 32,` , where frameX and frameY changes every time in the game loop.
+* In the code above, you create the position of the sprite using `"walk-down": [ [1,0],[0,0],[3,0],[0,0] ],` `[0, 0]` helps tell us the animation frame we are using when the sprite is walking down. In addition, after we finish creating the animation frame, we need to create a time for how long we want the animation loop to be before it goes to the next frame. After we finish creating the frame time, we draw the image by using `frameX * 32, frameY * 32,` , where frameX and frameY changes every time in the game loop.
 * One challenge I faced was when I was learning about the updateAnimationProgress function. I was confused why when we reset the counter, we need to add 1 to `this.currentAnimationFrame`. In addition, I tried to comment out the code and noticed that if we didn't add 1 to the currentAnimationFrame, the current animation frame will always be the same.
 ```JS
 updateAnimationProgress(){
