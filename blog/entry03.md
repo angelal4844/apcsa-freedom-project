@@ -213,6 +213,7 @@ delayAfter: character === " " ? 0: this.speed
 
 ### Planning
 * After I finished learning my tool, I started to plan what I want the background and game object to be. In addition, during these few weeks, I drew out what I want my background of the game to be.
+<img width="1200" alt="sep-room" src="https://github.com/angelal4844/apcsa-freedom-project/assets/91750609/3d087df6-8d46-4b68-a282-be5e20997d33">
 
 ### Skills
 * Some skills I learned when tinkering my tool and planning out the background and sprites for my game is time management, creativity, and how to google. These few weeks, I drew out different ideas for my game and what I want to include in my game. In addition, I learned to organize my time by watching tutorials and taking notes every morning during my winter break. Moreover, I also learned how to google by finding different tutorials to watch if I am confused.
