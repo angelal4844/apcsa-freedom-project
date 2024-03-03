@@ -338,8 +338,82 @@ class RevealingText {
 * In the code above, inside the for each loop, when you run the code, each letter will appear one by one. In addition, if we want one word to appear one by one, we can create a new for loop, where we do not use `this.text.split("")`.
 
 * One challenge I had was when I was trying out how to use `delayAfter: character === " " ? 0: this.speed`. I was confused what `?` mean in the code. After trying out the code, I learned that `?` mean passing a number into the empty string.
+## (1/22/2024 - 1/30/2024)
+Link: https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_
+* This week, I learned about building a table, where when the user touches the table, the user can craft different things. In addition, this week, I also learned about how to create a text message when the user touches the table.
+#### Step 1
+* I first started by making the table appear on the screen. I started by adding a table into the map first by creating a new game object inside my map called `Main Map`. Then, when I was watching the tutorial, I learned about `storyFlag`, where the storyFlag can help tell us if the food on the table is crafted yet.
+```JS
+window.MainMaps = {
+    table: new table({ // creating a new game object
+        // position of the table
+        x: 8,
+        y: 15,
+        storyFlag: "TABLE" // helps tell us if the user crafted a food or not
+    })
+}
+```
+#### Step 2
+In addition, after I added the `storyFlag` inside my new game object. I created a new class to make my table responsive after the user touches the table. In the beginning, I tried by making the table appear a text message everytime the user touches the table. I created a event inside `this.talking`, so that whenever the sprite touches the table, it will appear a text message saying `This is a table.`
+```JS
+class CraftTable extends GameObject {
+    this.storyFlag = config.storyFlag;
+    this.talking = [{
+        events: [ // the event will run everytime the user touches the table
+            {type: "textMessage", text: "This is a table"},
+        ]
+    }]
+}
+```
+* Next week, I am going to try making different text messages when the user wants to craft a new food or if the food has already been crafted.
+## (2/26/2024 - 3/3/2024)
+Link: https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_
+* This week, I continued learning about builidng a table, where when the user touches the table, the user can craft different things. Last few weeks, I learned about adding a table inside a map as well as making a text message appear when the user touches the table. This week, I am going create different text messages that tells the user if they are creating a new food or if the food has already been crafted.
 
-* Something I am going to try next is making a mini project using typewriters and scene transitions.
+#### Step 3
+I started by adding `food` inside the table, where it grabs the ID of the food (hamburger and french fries), where when the storyFlag is true, the food will appear.
+```JS
+window.OverworldMaps = {
+    table: new table({ // creating a new game object
+        // position of the table
+        x: utils.withGrid(3),
+        y: utils.withGrid(7),
+        storyFlag: "TABLE" //
+        foods: ["a035", "c358"], // a035 and c358 are the id for my hamburger sprite and french fries sprite
+    })
+}
+```
+#### Step 4
+Inside the class `CraftTable`, I added a `required: [this.storyFlag],`, where only when there is a `storyFlag` inside the game object, it will appear a text message. In addition, I also added a new event when the the user is crafting a new food. In the beginning, I added a new text message saying that `you are crafting a new food..`, when the text message disappears, it will ask the user to pick a food. The food id will be stored into `foods`, so that when the update function runs, the food will appear on the table.
+```JS
+class CraftTable extends GameObject {
+    this.storyFlag = config.storyFlag;
+    this.food = config.food; // pass in the id of the food when the user clicks on a food that they want to craft
+    this.talking = [{
+        required: [this.storyFlag], // if the game object has a storyFlag, the event will run
+        events: [
+            {type: "textMessage", text: "You have already crafted this food"}, // the text message will appear when the required is true
+        ]
+    }]
+},
+{
+    events: [ // when the user is crafting a nnew food
+        {type: "textMessage", text: "You are crafting a new food..."}, // creating a new message
+        {type: "craftingMenu", foods: this.food}, // when the user chooses a food, the id of the food will be stored inside this.food
+        {type: "addStoryFlag", flag: this.storyFlag}, // grabs the storyFlag from map and storing the storyFlag in flag
+    ]
+}
+```
+
+#### Step 5
+Then, I learned about creating a update, where the game object on the table can disappear when the food is crafted. In the beginning, I was very confused what does the `? "used-down"` and `:"unused-down";` do when the update function runs. When I tried changing the text message inside the quotation marks, there was an error. However, through debugging and watching the tutorials again, I learned that when the update function runs, it first check if the current animation is equal to `"used-down"`, if it is not equal to `"used-down"`, it will change the current animation to `"unused-down"`, making the food on the table disappear.
+```JS
+update(){
+    this.sprite.currentAnimation = playerState.storyFlag[this.storyFlag]
+    ? "used-down"
+    : "unused-down";
+}
+```
 
 <!--
 * Links you used today (websites, videos, etc)
