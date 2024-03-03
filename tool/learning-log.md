@@ -366,7 +366,7 @@ class CraftTable extends GameObject {
 }
 ```
 * Next week, I am going to try making different text messages when the user wants to craft a new food or if the food has already been crafted.
-## (2/26/2024 - 3/3/2024)
+## (2/26/2024 - 3/4/2024)
 Link: https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_
 * This week, I continued learning about builidng a table, where when the user touches the table, the user can craft different things. Last few weeks, I learned about adding a table inside a map as well as making a text message appear when the user touches the table. This week, I am going create different text messages that tells the user if they are creating a new food or if the food has already been crafted.
 
