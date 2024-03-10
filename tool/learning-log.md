@@ -414,7 +414,7 @@ update(){
     : "unused-down";
 }
 ```
-### 3/4/2024 - 3/10/2024
+## 3/4/2024 - 3/10/2024
 * This week, I started working on my MVP for my game. I made a canvas for my game as well as making my sprites move.
 In the beginning, I first created the canvas for my game using ` <img  class = "game-canvas blue "src = "link to the image">`.
 ```JS
