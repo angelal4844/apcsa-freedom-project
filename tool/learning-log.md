@@ -433,24 +433,24 @@ In the beginning, I first created the canvas for my game using ` <img  class = "
      height: 600px;
     }
 ```
-* After I finish creating the canvas, I started adding all the sprites inside my game as well as making the sprite move using the up, down, left, and right keys. In the beginning, I first added all my sprites inside the game using ` <img  class = "game-canvas size "src = "img/sprite-1.png">` in html.
+* After I finish creating the canvas, I started adding all the sprites inside my game as well as making the sprite move using the up, down, left, and right keys. In the beginning, I first added all my sprites inside the game using `<img  class = "game-canvas size "src = "img/sprite-1.png">` in html.
 ```html
- <img  id="num1" class = "game-canvas size position1"src = "img/sprite-1.png">
- <img  id="num1" class = "game-canvas size position2"src = "img/sprite-2.png">
- <img  id="num1" class = "game-canvas size position3"src = "img/sprite-3.png">
- <img  id="num1" class = "game-canvas size position4"src = "img/sprite-4.png">
- <img  id="num1" class = "game-canvas size position5"src = "img/sprite-5.png">
+ <img  id="num1" class = "game-canvas size position1" src = "img/sprite-1.png">
+ <img  id="num1" class = "game-canvas size position2" src = "img/sprite-2.png">
+ <img  id="num1" class = "game-canvas size position3" src = "img/sprite-3.png">
+ <img  id="num1" class = "game-canvas size position4" src = "img/sprite-4.png">
+ <img  id="num1" class = "game-canvas size position5" src = "img/sprite-5.png">
 ```
 Then, I grab the id of each sprite and make all the sprite be able to move using `document.addEventListener("keydown", e => {});`
 ```JS
-document.getElementById("num1").document.addEventListener("keydown", e => {
+document.getElementById("num1").addEventListener("keydown", e => {
         "ArrowUp": "up",
         "ArrowDown": "down",
         "ArrowLeft": "left",
         "ArrowRight": "right",
     });
 ```
-However, when I inspect it using `http-server`, it wasn't working. The sprite was not moving when I click on the up, down, left, and right button. Then, I look through my notes again and found out that you can put `"ArrowUp": "up",` inside a new function, so that when `document.addEventListener("keydown", e => {});` is called, you can call each sprite inside the function using `this.sepRoom[e.code]`.
+However, when I inspect it using `http-server`, it wasn't working. The sprite was not moving when I click on the up, down, left, and right button. Then, I look through my notes again and found out that you use `"ArrowUp": "up",`, it is only declaring `ArrowUp` to `up` but it is not calling `"ArrowUp": "up",`. 
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
