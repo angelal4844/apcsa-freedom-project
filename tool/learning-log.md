@@ -450,7 +450,45 @@ document.getElementById("num1").addEventListener("keydown", e => {
         "ArrowRight": "right",
     });
 ```
-However, when I inspect it using `http-server`, it wasn't working. The sprite was not moving when I click on the up, down, left, and right button. Then, I look through my notes again and found out that you use `"ArrowUp": "up",`, it is only declaring `ArrowUp` to `up` but it is not calling `"ArrowUp": "up",`. 
+However, when I inspect it using `http-server`, it wasn't working. The sprite was not moving when I click on the up, down, left, and right button. Then, I look through my notes again and found out that you use `"ArrowUp": "up",`, it is only declaring `ArrowUp` to `up` but it is not calling `"ArrowUp": "up",`.
+## 3/11/2024 - 3/18/2024
+* Link:https://www.w3schools.com/
+* Link:https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_
+* This week, I continued working on my MVP for my game. I made a clickable map using `.addEventListener("click", myFunction);`. In the beginning, I added all the map and made all the map the same size and position. In addition, I also added a id for each map.
+```html
+ <div class = "game-container">
+       <img class = "game-canvas blue" id ="map1" src = "img/sep-room.png">
+       <img class = "game-canvas purple" id ="map2" src = "img/kitchen.png">
+       <img class = "game-canvas green" id ="map3" src = "img/testRoom.png">
+    </div>
+```
+* After I finish adding all my map, I grab the id for each map and made the map clickable using `.addEventListener("click", myFunction);`.
+```JS
+    document.getElementById("map1").addEventListener("click", myFunction);
+    document.getElementById("map2").addEventListener("click", myFunction2);
+    document.getElementById("map3").addEventListener("click", myFunction3);
+```
+* Then, inside each function, I made the next map appear when the user clicks on the map, while the other maps disappear. In addition, I used `document.getElementById("map2").style.visibility= "hidden";` to make the map disappear and `document.getElementById("map2").style.visibility= "visible";` to make the appear.
+```JS
+ function myFunction(){
+    document.getElementById("map1").style.visibility= "hidden";
+    document.getElementById("map2").style.visibility= "visible";
+    document.getElementById("map3").style.visibility= "hidden";
+        }
+
+ function myFunction2(){
+    document.getElementById("map1").style.visibility= "hidden";
+    document.getElementById("map2").style.visibility= "hidden";
+    document.getElementById("map3").style.visibility= "visible";
+        }
+
+ function myFunction3(){
+    document.getElementById("map1").style.visibility= "visible";
+    document.getElementById("map2").style.visibility= "hidden";
+    document.getElementById("map3").style.visibility= "hidden";
+        }
+```
+* Next week, I am going to continue building my MVP. In addition, I am going to add all the food inside my game and make a menu for my game. 
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
