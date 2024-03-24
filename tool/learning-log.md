@@ -492,7 +492,7 @@ However, when I inspect it using `http-server`, it wasn't working. The sprite wa
 ## 3/19/2024 - 3/25/2024
 * Link:https://www.w3schools.com/
 * Link:https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_
-This week, I continued building my MVP for my game. Last week, I created a clickable map and made the sprites movee in the game. Today, I am going to create a score board, where when the player finds an object in the map, the score will increase by 1.
+* This week, I continued building my MVP for my game. Last week, I created a clickable map and made the sprites movee in the game. Today, I am going to create a score board, where when the player finds an object in the map, the score will increase by 1.
 
 * In the beginning, I first started by adding all the game objects into the game. In addition, I made all the game objects disappear when it is clicked using `document.getElementById("table").style.visibility= "hidden"`.
 ```Java
