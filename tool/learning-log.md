@@ -488,7 +488,56 @@ However, when I inspect it using `http-server`, it wasn't working. The sprite wa
     document.getElementById("map3").style.visibility= "hidden";
         }
 ```
-* Next week, I am going to continue building my MVP. In addition, I am going to add all the food inside my game and make a menu for my game. 
+* Next week, I am going to continue building my MVP. In addition, I am going to add all the game objects inside my game and make a score board.
+## 3/19/2024 - 3/25/2024
+* Link:https://www.w3schools.com/
+* Link:https://www.youtube.com/watch?v=fyi4vfbKEeo&list=PLcjhmZ8oLT0r9dSiIK6RB_PuBWlG1KSq_
+This week, I continued building my MVP for my game. Last week, I created a clickable map and made the sprites movee in the game. Today, I am going to create a score board, where when the player finds an object in the map, the score will increase by 1.
+
+* In the beginning, I first started by adding all the game objects into the game. In addition, I made all the game objects disappear when it is clicked using `document.getElementById("table").style.visibility= "hidden"`.
+```Java
+
+document.getElementById("table").addEventListener("click", myFunction5);
+document.getElementById("pizza").addEventListener("click", myFunction5);
+document.getElementById("cupcake").addEventListener("click", myFunction5);
+document.getElementById("rice").addEventListener("click", myFunction5);
+document.getElementById("cookie").addEventListener("click", myFunction5);
+document.getElementById("popcorn").addEventListener("click", myFunction5);
+document.getElementById("bread").addEventListener("click", myFunction5);
+
+
+function myFunction5(){
+    document.getElementById("table").style.visibility= "hidden";
+    document.getElementById("cupcake").style.visibility= "hidden";
+    document.getElementById("pizza").style.visibility= "hidden";
+    document.getElementById("rice").style.visibility= "hidden";
+    document.getElementById("cookie").style.visibility= "hidden";
+    document.getElementById("popcorn").style.visibility= "hidden";
+    document.getElementById("bread").style.visibility= "hidden";
+}
+```
+* In the code above, when `table, cupcake, pizza, rice, cookie, popcorn, and bread` is clicked, `myFunction5` will run and the game object will disappear. After I finish making all the game objects be able to disappear, I started making the score board for my game. In the beginning, I first started by adding a text message using `text();`
+```Java
+var num = 0;
+text("Score :" + " " + num, 0, 50);
+// In the code above, I created a variable called num to help keep track of the the score. In addition, then I created a text called score and the position of the text is at (0, 50)
+```
+* After I finish adding the text message inside the game, I started making the score increase whenever a game object is clicked. As a result, I first try putting it inside `myFunction5`. I was scared that it will only increase the score by 1 one time.
+```Java
+function myFunction5(){
+    document.getElementById("table").style.visibility= "hidden";
+    document.getElementById("cupcake").style.visibility= "hidden";
+    document.getElementById("pizza").style.visibility= "hidden";
+    document.getElementById("rice").style.visibility= "hidden";
+    document.getElementById("cookie").style.visibility= "hidden";
+    document.getElementById("popcorn").style.visibility= "hidden";
+    document.getElementById("bread").style.visibility= "hidden";
+    num++;
+}
+```
+However, when I run it in `http-server`, it worked!
+
+* Next week, I am going to make sprites be able to go inside houses and building inside the game.
 <!--
 * Links you used today (websites, videos, etc)
 * Things you tried, progress you made, etc
